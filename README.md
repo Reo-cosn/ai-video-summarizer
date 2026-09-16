@@ -14,9 +14,37 @@
 
 ## 快速开始
 
-1. **注册硅基流动**：打开 [cloud.siliconflow.cn](https://cloud.siliconflow.cn)，注册后进入「API 密钥」创建 Key（新用户有免费额度，充值 ¥10 可转写数十小时视频）
-2. **双击 `start.bat`**：首次运行自动创建环境并安装依赖（2-3 分钟），之后自动打开浏览器
-3. **粘贴 API Key → 保存**，然后粘贴视频网址或拖入本地文件 → 点「🚀 开始总结」
+**第 1 步：下载代码**
+
+```bash
+git clone https://github.com/Reo-cosn/ai-video-summarizer.git
+cd ai-video-summarizer
+```
+
+没装 git 也可以：在仓库页面点 `Code → Download ZIP`，解压即可。
+
+**第 2 步：确认环境**
+
+需要 **Python 3.10 或更高版本**（[下载](https://www.python.org/downloads/)）。Windows 安装时务必勾选 **「Add Python to PATH」**。
+
+**第 3 步：注册硅基流动，拿 API Key**
+
+打开 [cloud.siliconflow.cn](https://cloud.siliconflow.cn)，注册后进入「API 密钥」创建 Key（新用户有免费额度，充值 ¥10 可转写数十小时视频）。
+
+**第 4 步：启动**
+
+首次运行会自动创建虚拟环境并安装依赖（约 2-3 分钟），装完后自动打开浏览器。
+
+| 系统 | 操作 |
+|------|------|
+| **Windows** | 双击 `start.bat` |
+| **macOS / Linux** | 终端执行 `./start.sh`（提示权限不足就先跑 `chmod +x start.sh`） |
+
+**第 5 步：开始使用**
+
+在界面「⚙️ 设置」里粘贴 API Key → 点保存，然后粘贴视频网址或拖入本地文件 → 点「🚀 开始总结」。
+
+以后再启动，重复第 4 步即可（依赖已装好，秒开）。
 
 ## 使用说明
 
@@ -42,7 +70,7 @@
 ## 常见问题
 
 - **B站视频提示需要登录？** 浏览器装「Get cookies.txt LOCALLY」扩展导出 cookies，存为项目目录下 `cookies.txt` 即可
-- **YouTube 访问失败？** 需要代理。在命令行先执行 `set HTTPS_PROXY=http://127.0.0.1:端口` 再运行 `start.bat`（或在系统代理开启时直接使用）
+- **YouTube 访问失败？** 需要代理。先设置环境变量再启动：Windows 用 `set HTTPS_PROXY=http://127.0.0.1:端口`，macOS / Linux 用 `export HTTPS_PROXY=http://127.0.0.1:端口`（系统代理已开启时可直接使用）
 - **转写结果为空？** 检查 API Key 余额，或该视频几乎没有语音内容
 - **模型失效？** 工具会自动换用账号可用的最新 DeepSeek 模型；也可在设置里手动填模型名
 - **速度与费用参考**：转写速度约为音频时长的 1/50（1 小时视频约 1 分钟转完），按音频时长计费约几毛钱/小时；总结按字数计费，每次几分钱。总结模型默认 DeepSeek-V4-Flash（快），可在设置里换成 V4-Pro（质量更高、稍慢）
@@ -55,7 +83,8 @@
 |------|------|
 | `app.py` | Web 界面 |
 | `summarizer.py` | 核心流程（提取 / 转写 / 总结） |
-| `start.bat` | 一键启动 |
+| `start.bat` | 一键启动（Windows） |
+| `start.sh` | 一键启动（macOS / Linux） |
 | `config.json` | API Key 等配置（首次保存后生成，**已加入 `.gitignore`，请勿外传**） |
 | `config.example.json` | 配置文件模板（供参考，字段说明见下） |
 | `输出/` | 成品：转录稿 `.txt` + 总结 `.md`，永久保留（已忽略，不会提交） |

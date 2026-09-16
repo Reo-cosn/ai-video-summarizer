@@ -4,7 +4,7 @@ AI 视频总结工具（个人项目，Windows + Git Bash 环境）。
 
 - **技术栈**：Python + Gradio + yt-dlp + 硅基流动 API（Qwen3-ASR 云端转写 + DeepSeek 总结）
 - **核心逻辑**：`summarizer.py`（获取视频 → 提取音轨 → 转写 → 总结）；UI：`app.py`（Gradio）
-- **启动**：`start.bat`（自动建 .venv、装依赖、开浏览器）；手动：`.venv\Scripts\python app.py`
+- **启动**：`start.bat`（Windows）/ `start.sh`（macOS、Linux）——两者行为一致：自动建 .venv、装依赖、开浏览器；手动：`.venv\Scripts\python app.py`（Windows）或 `.venv/bin/python app.py`（Unix）
 - **配置**：`config.json`（API key 等，勿外传）；`cookies.txt`（可选，B站登录态）
   - ⚠️ `run_pipeline(..., api_key=...)` 会把 key **写回 config.json**，写测试时别传假 key，否则会覆盖用户的真 key
 - **目录约定**：成品（转录稿 `.txt` + 总结 `.md`）存 `输出/`，永久保留；`work/` 是纯临时目录，
