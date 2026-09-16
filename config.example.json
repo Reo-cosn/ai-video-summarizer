@@ -1,0 +1,6 @@
+{
+  "api_key": "在这里填入你的硅基流动 API Key",
+  "base_url": "https://api.siliconflow.cn",
+  "asr_model": "Qwen/Qwen3-ASR-1.7B",
+  "llm_model": "deepseek-ai/DeepSeek-V4-Flash"
+}

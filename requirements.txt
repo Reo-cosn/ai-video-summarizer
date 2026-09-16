@@ -1,0 +1,4 @@
+yt-dlp
+gradio
+requests
+imageio-ffmpeg
